@@ -1,0 +1,51 @@
+
+# 기상청 API 허브
+# 일자료(기간 조회)
+# https://apihub.kma.go.kr/api/typ01/url/kma_sfcdd3.php?tm1=20151211&tm2=20151214&stn=108&help=1&authKey=4YsHkuwfRHSLB5LsH0R0kA
+
+
+# 서울시 열린 데이터 광장
+# 행정동 단위 서울 생활인구(내국인) https://data.seoul.go.kr/dataList/OA-14991/S/1/datasetView.do#
+# http://openapi.seoul.go.kr:8088/71435764654c756336376a6b55784c/json/SPOP_LOCAL_RESD_DONG/1/5/
+
+
+
+# 서울시 열린 데이터 광장
+# 스마트서울 도시데이터 센서(S-DoT) 유동인구 측정 정보
+# http://openapi.seoul.go.kr:8088/71435764654c756336376a6b55784c/json/IotVdata018/1/10/
+
+
+
+
+# 경기도 행정기관 읍면동 단위의 행정동 및 법정동 코드표
+https://data.gg.go.kr/portal/data/service/selectServicePage.do?infId=JQODJFZ2Y4SYUYRKR54S34768190&infSeq=1 
+# https://openapi.gg.go.kr/TBGGINSTCODEM?key=1eca2abbb2674ff2a1f087d6cecffe7e&type=json&pIndex=1&pSize=100
+
+
+
+# 경기도 행정기관 읍면동 단위의 행정동 및 법정동 코드표
+# API Endpoint: https://openapi.gg.go.kr/TBGGINSTCODEM
+# Environment Variables:
+# GGINSTCODE_API_ENDPOINT = https://openapi.gg.go.kr/TBGGINSTCODEM
+# GGINSTCODE_API_KEY = YOUR_API_KEY
+
+
+
+“생활인구”는 단순히 “주민등록상 주소지에 있는 사람 수(거주인구)”가 아니라, 
+**실제로 특정 시간대에 그 지역 안에 ‘머물고 있는 사람 수’**를 뜻해.
+즉, 이 개념은 **“그 지역을 실제로 사용하는 사람 수”**를 보여주는 지표야.
+조금 구체적으로 보면 이렇게 나뉘어:
+
+🏠 거주인구: 그 동네에 주민등록상 주소가 있는 사람 (밤에는 많지만 낮엔 빠질 수 있음)
+🚶‍♂️ 유입인구: 일하러, 놀러, 학교 때문에 다른 동에서 들어온 사람
+🚗 유출인구: 반대로, 집은 그 동에 있지만 다른 곳으로 나간 사람
+
+📱 생활인구(=상주 + 유입 − 유출): 일정 시간대(예: 1시간 단위)에 실제로 그 지역 안에 ‘존재하는 인원’을 추정한 값
+이 데이터는 통신사 기지국 위치 정보, 카드 사용 기록, 행정자료 등을 기반으로 통계청이나 서울시, KT·SKT·LGU+ 같은 곳에서 집계해.
+
+그래서 예를 들어,
+강남역 근처는 낮에 생활인구가 폭증하지만 밤엔 줄어듦 (직장인 중심)
+주택가 동네는 반대로 밤에 생활인구가 많고 낮엔 빠짐
+
+정리하면:
+생활인구 = 실시간 ‘머물고 있는 사람 수’ → 실제 상권·교통·안전·서비스 수요를 파악하기 위한 지표

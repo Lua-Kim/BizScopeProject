@@ -1,0 +1,18 @@
+{
+  "scriptFile": "function_app.py",
+  "bindings": [
+    {
+      "name": "timer_trigger1",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "name": "outputEventHub",
+      "type": "eventHub",
+      "direction": "out",
+      "eventHubName": "team5-eventhub",
+      "connection": "EventHubConnection"
+    }
+  ]
+}
